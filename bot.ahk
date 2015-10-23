@@ -7,7 +7,7 @@ WinActivate, Nada
 randSleep(3000,15000)
 Loop
 	{
-		CoordMod Pixel, Screen
+		CoordMode Pixel, Screen
 		ImageSearch, outX, outY, 0, 0, A_ScreenWidth, A_ScreenHeight, button.png
 		if ErrorLevel = 2
 			{
@@ -25,7 +25,7 @@ Loop
 				randSleep(5000, 12000)
 			}
 	}
-	
+
 ;Functions
 randSleep(x, y)
 	{
@@ -49,5 +49,6 @@ buttonClick(x, y)
 		CoordMode, Mouse, Screen
 		Random, randX, 1, 10
 		Random, randY, 1, 10
-		MouseClick, left, x+randX, y+randY
+		Random, speed, 20, 90
+		MouseClick, left, x+randX, y+randY, speed
 	}
